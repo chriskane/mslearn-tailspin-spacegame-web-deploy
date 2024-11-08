@@ -143,7 +143,17 @@ stages:
   displayName: 'Deploy to the staging environment'
   dependsOn: Test
   jobs:
+  - job: Deploy_Application_Precondition
+    pool: server
+    steps:  
+
+    - task: ServiceNow-DevOps-Server-Change-Acceleration@1
+      inputs:
+        connectedServiceName: ''
+  
   - deployment: Deploy
+    dependsOn: Deploy_Application_Precondition
+    condition: succeeded()
     pool:
       vmImage: ubuntu-latest
     environment: staging
