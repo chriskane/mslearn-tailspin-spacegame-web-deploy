@@ -149,7 +149,7 @@ stages:
 
     - task: ServiceNow-DevOps-Server-Change-Acceleration@1
       inputs:
-        connectedServiceName: ''
+        connectedServiceName: 'dev281970-Space Game - web - Nonfunctional tests-ServiceNow DevOps Service Connection'
   
   - deployment: Deploy
     dependsOn: Deploy_Application_Precondition
